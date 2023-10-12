@@ -1,7 +1,7 @@
 package main
 
 import (
-	"./internal/certutil"
+	"github.com/GlobalProtect/certutil/internal/certutil"
 	"fmt"
 )
 
