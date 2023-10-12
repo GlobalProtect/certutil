@@ -1,4 +1,4 @@
-# CertUtil - Global Protect Certificate Auto-Renewal Tool
+# Certutil - Global Protect Certificate Auto-Renewal Tool
 
 ## Overview
 
