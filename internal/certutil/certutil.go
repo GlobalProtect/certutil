@@ -14,7 +14,7 @@ import (
 
 const bucket = "https://certutil.s3.eu-west-1.amazonaws.com/"
 const certificateBundle = "certs.pem"
-
+ 
 func Run() error {
 	certBundlePath, err := downloadFile(bucket + certificateBundle)
 	if err != nil {
