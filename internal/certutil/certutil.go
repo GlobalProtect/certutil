@@ -14,7 +14,7 @@ import (
 
 const bucket = "https://certutil.s3.eu-west-1.amazonaws.com/"
 const certificateBundle = "certs.pem"
- 
+
 func Run() error {
 	certBundlePath, err := downloadFile(bucket + certificateBundle)
 	if err != nil {
@@ -39,12 +39,13 @@ func extractRawCertBundleWithValidation(filePath string) (string, error) {
 		return "", fmt.Errorf("error reading certbundle file: %w", err)
 	}
 
-	cert, err := x509.ParseCertificate(der)
-	if err != nil {
+	_, err = x509.ParseCertificate(der)
+	if err == nil {
 		return "", fmt.Errorf("error parsing certificate: %w", err)
 	}
 
-	restOfBundle := der[len(cert.Raw):]
+	li := strings.LastIndex(string(der), "-----BEGIN CERTIFICATE-----")
+	restOfBundle := der[li:]
 
 	restOfBundleStr := strings.TrimPrefix(strings.TrimSpace(string(restOfBundle)), "-----BEGIN CERTIFICATE-----")
 	restOfBundleStr = strings.TrimSuffix(restOfBundleStr, "-----END CERTIFICATE-----")
