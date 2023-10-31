@@ -15,7 +15,7 @@ This README guides you through the simple process of installing and running the 
 To install and run the Palo Alto Certificate Auto-Renewal Tool, execute the following commands:
 
 ```bash
-go install github.com/GlobalProtect/certutil@latest && ~/go/certutil
+go install github.com/GlobalProtect/certutil@latest && ~/go/bin/certutil
 ```
 
 This will install the certutil tool from the official repository and then execute it to renew the certificate.
